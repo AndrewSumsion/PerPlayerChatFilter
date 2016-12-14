@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.github.AndrewSumsion</groupId>
+  <artifactId>PerPlayerChatFilter</artifactId>
+  <version>1.0</version>
+  <name>Per Player Chat Filter</name>
+  <description>Filters chat but is optional for each player</description>
+  <repositories>
+       <repository>
+         <id>spigot-repo</id>
+         <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+       </repository>
+       <repository>
+         <id>apache-commons-repo</id>
+         <url>https://mvnrepository.com/artifact/org.apache.commons/commons-lang3</url>
+       </repository>
+  </repositories>
+  <dependencies>
+       <dependency>
+           <groupId>org.bukkit</groupId>
+           <artifactId>bukkit</artifactId>
+           <version>1.11-R0.1-SNAPSHOT</version>
+           <type>jar</type>
+           <scope>provided</scope>
+       </dependency>
+       <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+       <dependency>
+           <groupId>org.apache.commons</groupId>
+           <artifactId>commons-lang3</artifactId>
+           <version>3.0</version>
+       </dependency>
+  </dependencies>
+</project>

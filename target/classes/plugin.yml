@@ -1,0 +1,28 @@
+name: PPCF
+main: io.github.AndrewSumsion.ppcf.PPCF
+version: 1.0
+commands:
+  filter:
+    description: Toggles chat filter
+    permission: ppcf.*
+    aliases: [ppcf]
+permissions:
+  ppcf.*:
+    description: Gives access to all PerPlayerChatFilter commands.
+    children:
+      ppcf.filter: true
+      ppcf.toggle: true
+      ppcf.reload: true
+      ppcf.edit: true
+  ppcf.filter:
+    description: Players with this permission will have their chat filtered
+    default: true
+  ppcf.toggle:
+    description: Players with this permission can toggle their chat filter
+    default: true
+  ppcf.reload:
+    description: Players with this permission can reload the config
+    default: op
+  ppcf.edit:
+    description: Players with this permission can add and remove blacklisted words
+    default: op
