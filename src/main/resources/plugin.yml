@@ -1,6 +1,6 @@
 name: PPCF
 main: io.github.AndrewSumsion.ppcf.PPCF
-version: 1.0
+version: 1.1
 commands:
   filter:
     description: Toggles chat filter

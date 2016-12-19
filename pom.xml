@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.AndrewSumsion</groupId>
   <artifactId>PerPlayerChatFilter</artifactId>
-  <version>1.0</version>
+  <version>1.1</version>
   <name>Per Player Chat Filter</name>
   <description>Filters chat but is optional for each player</description>
   <repositories>
