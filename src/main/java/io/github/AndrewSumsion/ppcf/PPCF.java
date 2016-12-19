@@ -13,6 +13,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -82,8 +83,11 @@ public final class PPCF extends JavaPlugin implements Listener {
 		return false; 
 	}
 	@SuppressWarnings("static-access")
-	@EventHandler
+	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onChat(AsyncPlayerChatEvent event) {
+		if(event.isCancelled()) {
+			return;
+		}
 		boolean containsWords = false;
 		for(String word : badWords) {
 			if(StringUtils.containsIgnoreCase(event.getMessage(), word)) {containsWords = true;}
