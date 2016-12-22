@@ -23,8 +23,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.apache.commons.lang3.StringUtils;
 
 public final class PPCF extends JavaPlugin implements Listener {
-	@SuppressWarnings("unchecked")
-	public ArrayList<String> badWords = ((ArrayList<String>)getConfig().getList("badwords"));
+	public ArrayList<String> badWords = ((ArrayList<String>)getConfig().getStringList("badwords"));
 	@Override
 	public void onEnable() {
 		// Register Events
@@ -55,9 +54,14 @@ public final class PPCF extends JavaPlugin implements Listener {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (cmd.getName().equalsIgnoreCase("filter") || cmd.getName().equalsIgnoreCase("ppcf")) { 
 			Player player = null;
-			if(!(sender instanceof Player) && !(args[1].equals("reload"))) {
-				sender.sendMessage("You must be a player!");
-			} else {
+			if(!(sender instanceof Player) && args.length == 0) {
+				sender.sendMessage(""+ChatColor.DARK_RED+ChatColor.BOLD+"You must be a player!");
+				return true;
+			}
+			if(!(sender instanceof Player) && !(args[0].equals("reload"))) {
+				sender.sendMessage(""+ChatColor.DARK_RED+ChatColor.BOLD+"You must be a player!");
+			}
+			else {
 			player = ((Player) sender);
 			}
 			// Toggle Filter
@@ -162,10 +166,10 @@ public final class PPCF extends JavaPlugin implements Listener {
 		player.sendMessage(""+ChatColor.RED+"Insufficient Permissions");
 	}
 	public void filterStatus(Player player) {
-		if(player.hasPermission("advancedchat.filter")) {
+		if(player.hasPermission("ppcf.filter")) {
 			player.sendMessage(""+ChatColor.GOLD+"Your chat filter is "+ChatColor.DARK_GREEN+ChatColor.BOLD+"ON");
 		}
-		if(!(player.hasPermission("advancedchat.filter"))) {
+		if(!(player.hasPermission("ppcf.filter"))) {
 			player.sendMessage(""+ChatColor.GOLD+"Your chat filter is "+ChatColor.DARK_RED+ChatColor.BOLD+"OFF");
 		}
 	}
